@@ -1,0 +1,24 @@
+nav .brand-logo i{
+  margin-right: 10px !important;
+}
+
+.container {
+  margin: 40px auto !important;
+  .show-page-wrrap{
+    text-align: center;
+  }
+}
+
+nav.pagination{
+  background-color: $main-blue !important;
+  padding: 0 16%;
+  font-size: 20px;
+  span {
+    margin-right: 10px;
+  }
+}
+
+.action-2{
+  width: 175px !important;
+  margin: 40px auto !important;
+}

@@ -1,0 +1,25 @@
+.content
+  .container
+    = form_for @article, url: {:action => 'update'} do |f|
+      %h3
+        編集する
+      .field.cp_iptxt.cp_1
+        = f.text_field :title, value: @article.title, placeholder: "", class: 'ef'
+        = f.label :title
+        %span.focus_line
+          %i
+      .field.cp_iptxt.cp_1
+        = f.label :image_url, class: 'image-label' do
+          = "Image Url"
+        %label{for: "file_upload"}
+          ファイルを選択
+          = f.file_field :image, id: 'file'
+          %input{type: "text", value: "ファイル選択", id: 'file_upload'}/
+        %input{readonly: "readonly", size: "35", type: "text", value: @article.image.url, id: 'fake_text_box'}/
+      .field.cp_iptxt.cp_1
+        = f.text_area :text, value: @article.text, placeholder: "", class: 'ef'
+        = f.label :text
+        %span.focus_line
+          %i
+      .actions.waves-effect.waves-light.btn.cyan.lighten-2
+        = f.submit 'SEND', class: 'submit-btn'

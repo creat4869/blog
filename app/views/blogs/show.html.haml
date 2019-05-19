@@ -1,0 +1,16 @@
+.content
+  .container
+    .show-page-wrrap
+      .card.show-page
+        .card-image.waves-effect.waves-block.waves-light
+          = image_tag @article.image.url,class: "activator{"
+          %span.card-title.activator
+            = @article.title
+        .card-content
+          - if user_signed_in? && current_user.id == @article.user_id
+            = link_to 'EDIT', edit_blog_path(@article.id), method: :get, class: 'waves-effect waves-light btn-small cyan accent-4'
+            = link_to 'DESTROY', "/blogs/#{@article.id}", method: :delete, data: { confirm: '削除しますか？' }, class: 'waves-effect waves-light btn-small cyan accent-4'
+        .card-text
+          %p
+            = simple_format(@article.text)
+            

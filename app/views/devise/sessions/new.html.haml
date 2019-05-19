@@ -1,0 +1,16 @@
+.content
+  .container
+    %h3 Log in
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .field.cp_iptxt.cp_1
+        = f.email_field :email, placeholder: "", class: 'ef'
+        = f.label :email
+        %span.focus_line
+          %i
+      .field.cp_iptxt
+        = f.password_field :password, autocomplete: "current-password", placeholder: "", class: 'ef'
+        = f.label :password
+        %span.focus_line
+          %i
+      .actions.waves-effect.waves-light.btn.cyan.lighten-2
+        = f.submit "Log in", class: 'submit-btn'

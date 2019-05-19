@@ -1,0 +1,30 @@
+.content
+  .container
+    %h3 Sign up
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field.cp_iptxt.cp_1
+        = f.text_field :nickname, maximum: "6", placeholder: "", class: 'ef'
+        = f.label :nickname
+        %span.focus_line
+          %i
+      .field.cp_iptxt
+        = f.email_field :email, placeholder: "", class: 'ef'
+        = f.label :email
+        %span.focus_line
+          %i
+      .field.cp_iptxt
+        = f.password_field :password, autocomplete: "new-password", placeholder: "", class: 'ef'
+        = f.label :password
+        %span.focus_line
+          %i
+        - if @validatable
+          %em
+            (#{@minimum_password_length} characters minimum)
+      .field.cp_iptxt
+        = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "", class: 'ef'
+        = f.label :password_confirmation
+        %span.focus_line
+          %i
+      .actions.waves-effect.waves-light.btn.cyan.lighten-2
+        = f.submit "Sign up", class: 'submit-btn'

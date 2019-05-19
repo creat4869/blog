@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
+    %title Blog
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    / Compiled and minified CSS
+    %link{href: "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css", rel: "stylesheet"}/
+    / Compiled and minified JavaScript
+    %script{src: "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"}
+    / Compiled and minified icon
+    %link{href: "https://fonts.googleapis.com/icon?family=Material+Icons", rel: "stylesheet"}/
+    / jQuery導入
+    %script{crossorigin: "anonymous", integrity: "sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=", src: "https://code.jquery.com/jquery-3.4.1.js"}
+  %body
+    %nav.cyan.lighten-2
+      .nav-wrapper
+        %a.brand-logo{href: root_path,style: "margin-left:50px;"}
+          %i.fa.fa-pencil
+          BLOG
+        - if user_signed_in?
+          %ul#nav-mobile.right.hide-on-med-and-down{style: "margin-right:50px;"}
+            %li
+              = link_to "ログアウト", destroy_user_session_path, method: :delete
+            %li
+              = link_to "投稿", new_blog_path
+        - else
+          %ul#nav-mobile.right.hide-on-med-and-down{style: "margin-right:50px;"}
+            %li
+              = link_to "ログイン", new_user_session_path
+            %li
+              = link_to "新規登録", new_user_registration_path
+    = yield

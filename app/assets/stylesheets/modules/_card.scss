@@ -1,0 +1,19 @@
+.card{
+  margin: 0.5rem 11px 1.5rem !important;
+  width: 47%;
+  display: inline-block;
+}
+
+.show-page-wrrap{
+  .show-page{
+    width:80% !important;
+    text-align: left;
+    box-shadow: none !important;
+    .card-text{
+      margin: 0 30px;
+      p{
+        padding-bottom: 30px;
+      }
+    }
+  }
+}

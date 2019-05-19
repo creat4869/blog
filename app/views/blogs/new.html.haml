@@ -1,0 +1,20 @@
+.content
+  .container
+    = form_for @article, url: {:action => 'create'} do |f|
+      %h3
+        投稿する
+      .field.cp_iptxt.cp_1
+        = f.text_field :title, placeholder: "", class: 'ef'
+        = f.label :title
+        %span.focus_line
+          %i
+      .field.cp_iptxt
+        = f.label :image_url, class: 'image-label' do
+          = f.file_field :image, class: 'image-label__input'
+      .field.cp_iptxt
+        = f.text_area :text, placeholder: "", class: 'ef'
+        = f.label :text
+        %span.focus_line
+          %i
+      .actions.waves-effect.waves-light.btn.cyan.lighten-2
+        = f.submit 'SEND', class: 'submit-btn'
